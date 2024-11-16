@@ -1,3 +1,26 @@
+Project Title: Alberta Region Career (ARC)
+
+Description: A regional job matching web application which provides a platform for employers to fins skillful and regional-based worker, at the same time provide job seekers to look for jobs regionally with feature of referencing from the platform. 
+
+Usage:
+
+Contributing:
+
+Credits: 
+
+License: This project is open source and available under the [MIT License](LICENSE).
+
+
+
+
+
+
+
+
+
+
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
