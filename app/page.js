@@ -17,12 +17,12 @@ export default function Home() {
       <div className="flex min-h-screen">
         {/* Left half with gray background */}
         <div className="w-1/2 bg-[#325F66] flex items-center justify-center p-8">
-          <h1 className="text-5xl font-bold text-white">Welcome to the ARC</h1>
+          <h1 className="text-[#325F66] text-5xl font-bold">Welcome to the ARC</h1>
         </div>
 
         {/* Right half with white background and buttons */}
         <div className="w-1/2 bg-white flex flex-col items-center justify-center p-8">
-          <h2 className="text-2xl font-semibold mb-6">Please choose an option to continue:</h2>
+          <h2 className="text-custom-green-dark text-2xl font-semibold mb-6">Welcome Back</h2>
           {/* Sign In Form */}
           <div className="w-full max-w-sm flex flex-col gap-4 mb-6">
             <input
@@ -35,7 +35,20 @@ export default function Home() {
               placeholder="Password"
               className="border border-gray-300 rounded px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#325F66]"
             />
-            <button className="bg-[#325F66] text-white px-4 py-2 rounded hover:bg-[#26494f]">
+            <div className="relative w-full">
+              <input
+                type="password"
+                placeholder="Password"
+                className="border border-gray-300 rounded px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#325F66]"
+              />
+              <a
+                href="/forgot-password"
+                className="text-sm text-[#325F66] hover:underline absolute right-0 top-full mt-1"
+              >
+                Forgot password?
+              </a>
+            </div>
+            <button className="bg-[#325F66] text-white px-4 py-2 rounded hover:bg-[#26494f] mt-6">
               Sign In
             </button>
           </div>
