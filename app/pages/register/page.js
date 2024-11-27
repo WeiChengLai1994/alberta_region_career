@@ -1,7 +1,7 @@
 'use client';  // Add this line to mark the component as a client component
 
 import { useState } from 'react';
-import { db } from '../../firebase/firebase';
+import { db } from '../../../firebase/firebase';
 import { collection, addDoc } from "firebase/firestore";
 
 export default function Register() {
