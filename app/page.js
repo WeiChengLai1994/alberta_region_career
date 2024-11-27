@@ -23,6 +23,22 @@ export default function Home() {
         {/* Right half with white background and buttons */}
         <div className="w-1/2 bg-white flex flex-col items-center justify-center p-8">
           <h2 className="text-2xl font-semibold mb-6">Please choose an option to continue:</h2>
+          {/* Sign In Form */}
+          <div className="w-full max-w-sm flex flex-col gap-4 mb-6">
+            <input
+              type="email"
+              placeholder="Email"
+              className="border border-gray-300 rounded px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#325F66]"
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              className="border border-gray-300 rounded px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#325F66]"
+            />
+            <button className="bg-[#325F66] text-white px-4 py-2 rounded hover:bg-[#26494f]">
+              Sign In
+            </button>
+          </div>
           <div className="flex flex-col gap-4">
             <Link href="/pages/login/employer" className="bg-[#325F66] text-white px-4 py-2 rounded hover:bg-[#26494f]">
               Employer Login
