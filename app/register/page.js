@@ -25,7 +25,7 @@ export default function Register() {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen p-8">
-            <h1 className="text-2xl font-bold mb-6">Register</h1>
+            <h1 className="text-2xl font-bold mb-6">Registerrrrrrrr</h1>
             <form className="flex flex-col gap-4 w-full max-w-md" onSubmit={handleSubmit}>
                 <input
                     type="text"
