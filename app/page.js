@@ -48,7 +48,7 @@ export default function Home() {
                 Forgot password?
               </a>
             </div>
-            <button className="bg-[#325F66] text-white px-4 py-2 rounded hover:bg-[#26494f] mt-6">
+            <button className="bg-[#325F66] text-white px-4 py-2 hover:bg-[#26494f] mt-6 rounded-3xl">
               Sign In
             </button>
           </div>
