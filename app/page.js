@@ -7,12 +7,10 @@ export default function Home() {
       <header className="bg-white p-4 flex items-center">
         {/* Space for the logo on the left */}
         <div className="flex-shrink-0">
-          <img src="/logo.png" alt="Logo" className="h-8" /> {/* Adjust the logo size as needed */}
+          <img src="/image/logo/ARC_logo_v2 1.jpg" alt="Logo" className="h-16" /> {/* Adjust the logo size as needed */}
         </div>
         {/* Optionally, add a header title or other elements here */}
-        <div className="ml-4 text-lg font-bold">
-          Your App Name
-        </div>
+      
       </header>
 
       {/* Main content - split into left and right halves */}
