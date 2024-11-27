@@ -16,7 +16,7 @@ export default function Home() {
       {/* Main content - split into left and right halves */}
       <div className="flex min-h-screen">
         {/* Left half with gray background */}
-        <div className="w-1/2 bg-gray-400 flex items-center justify-center p-8">
+        <div className="w-1/2 bg-[#325F66] flex items-center justify-center p-8">
           <h1 className="text-5xl font-bold text-white">Welcome to the ARC</h1>
         </div>
 
