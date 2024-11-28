@@ -79,15 +79,17 @@ const EmployerDashboard = () => {
           <div className="bg-white rounded-lg shadow-2xl p-4">
             <h3 className="text-lg font-medium mb-2">Posted Jobs</h3>
             <p className="text-4xl font-bold">{dashboardData.postedJobs}</p>
-            
+            <p className="text-sm text-green-500">+15% increase vs last month</p>
           </div>
           <div className="bg-white rounded-lg shadow-2xl p-4">
             <h3 className="text-lg font-medium mb-2">Applications</h3>
             <p className="text-4xl font-bold">{dashboardData.applications}</p>
+            <p className="text-sm text-green-500">+25% increase vs last month</p>
           </div>
           <div className="bg-white rounded-lg shadow-2xl p-4">
             <h3 className="text-lg font-medium mb-2">New Messages</h3>
             <p className="text-4xl font-bold">{dashboardData.newMessages}</p>
+            <p className="text-sm text-green-500">+5% increase vs last month</p>
           </div>
         </div>
 
@@ -103,11 +105,6 @@ const EmployerDashboard = () => {
         <div className="bg-white rounded-xl shadow-2xl p-5">
           <h3 className="text-lg font-medium mb-4">Posted Jobs</h3>
           <table className="w-full">
-            <thead>
-              <tr className="bg-gray-300">
-                <th className="py-3 px-4 text-left font-medium">Title</th>
-              </tr>
-            </thead>
             <tbody>
               {dashboardData.postedJobsList.map((job, index) => (
                 <tr
