@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 
 const EmployerDashboard = () => {
-  // 假設的示例資料
+  // demonstration example data
   const dashboardData = {
     companyId: 'ae229b6d46341a16',
     postedJobs: 2031,
@@ -73,23 +73,27 @@ const EmployerDashboard = () => {
 
       {/* main menu */}
       <div className="flex-1 p-8">
-        <h1 className="text-2xl font-bold mb-4">Hello, Employer!</h1>
+        <h1 className="text-5xl font-bold mb-4">Hello, Employer!</h1>
+        <h1 className="text-2xl font-bold mb-4">Employer ID: {dashboardData.companyId}</h1>
         <div className="grid grid-cols-3 gap-4 mb-8">
-          <div className="bg-white rounded-lg shadow p-4">
+          <div className="bg-white rounded-lg shadow-2xl p-4">
             <h3 className="text-lg font-medium mb-2">Posted Jobs</h3>
             <p className="text-4xl font-bold">{dashboardData.postedJobs}</p>
+            <p className="text-sm text-green-500">+15% increase vs last month</p>
           </div>
-          <div className="bg-white rounded-lg shadow p-4">
+          <div className="bg-white rounded-lg shadow-2xl p-4">
             <h3 className="text-lg font-medium mb-2">Applications</h3>
             <p className="text-4xl font-bold">{dashboardData.applications}</p>
+            <p className="text-sm text-green-500">+25% increase vs last month</p>
           </div>
-          <div className="bg-white rounded-lg shadow p-4">
+          <div className="bg-white rounded-lg shadow-2xl p-4">
             <h3 className="text-lg font-medium mb-2">New Messages</h3>
             <p className="text-4xl font-bold">{dashboardData.newMessages}</p>
+            <p className="text-sm text-green-500">+5% increase vs last month</p>
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow p-4 mb-8">
+        <div className="bg-white rounded-lg shadow-2xl p-4 mb-8">
           <h3 className="text-lg font-medium mb-4">Application Received</h3>
           <div className="flex flex-col justify-center items-center h-64">
             <div className="flex flex-col justify-center items-center h-64">
@@ -98,14 +102,9 @@ const EmployerDashboard = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-md p-5">
+        <div className="bg-white rounded-xl shadow-2xl p-5">
           <h3 className="text-lg font-medium mb-4">Posted Jobs</h3>
           <table className="w-full">
-            <thead>
-              <tr className="bg-gray-300">
-                <th className="py-3 px-4 text-left font-medium">Title</th>
-              </tr>
-            </thead>
             <tbody>
               {dashboardData.postedJobsList.map((job, index) => (
                 <tr
