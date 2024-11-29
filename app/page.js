@@ -14,7 +14,7 @@ export default function Home() {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       console.log("Login successful"); // Log after successful login
-      window.location.href = "/dashboard";
+      window.location.href = "/dashboard/employer"; // Redirect to the dashboard
     } catch (err) {
       console.error("Error:", err); // Log the full error object
       setError("Login failed. Please check your email and password.");
