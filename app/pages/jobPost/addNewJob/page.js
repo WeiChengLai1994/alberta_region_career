@@ -1,12 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
 
-const JobPosts = () => {
+const AddNewJob = () => {
   // demonstration example data
   const dashboardData = {
     companyId: 'ae229b6d46341a16',
     companyName: 'Notion',
     postedJobs: 31,
+    jobId: 'ae229b6d46341a16',
     postedJobsList: [
       { 
         title: 'Software Engineer',
@@ -75,7 +76,7 @@ const JobPosts = () => {
 
       <div className="flex h-screen">
         {/* left hand side menu */}
-        <div className="bg-gray-200 p-6 flex flex-col space-y-10">
+        <div className="bg-gray-200 p-6 flex flex-col space-y-10 ">
           <h1 className="text-2xl font-bold">Employer Dashboard</h1>
           <Link href="/" className="flex items-center space-x-2">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -90,7 +91,7 @@ const JobPosts = () => {
             </svg>
             <span className="text-gray-600">Profile</span>
           </Link>
-          <Link href="/job-post" className="flex items-center space-x-2">
+          <Link href="/pages/jobPost/PostedList" className="flex items-center space-x-2">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
             </svg>
@@ -118,21 +119,63 @@ const JobPosts = () => {
             <div className="flex items-center">
                 <img src="../../../../../image/notion.png" alt="Image" className="h-25 mr-6" />
                 <div>
-                <h1 className=" text-custom-green-dark text-5xl font-bold mb-7">Hello, {dashboardData.companyName}!</h1>
-                <h1 className="text-2xl font-bold mb-9">Employer ID: {dashboardData.companyId}</h1>
+                  <h1 className=" text-custom-green-dark text-5xl font-bold mb-7">Hello, {dashboardData.companyName}!</h1>
+                  <h1 className="text-2xl font-bold mb-9">Employer ID: {dashboardData.companyId}</h1>
                 </div>
 
             </div>
-
-      
-            
-
-            
+            <div className="flex items-center space-x-4">
+            {/* Add Button */}
+            <Link href="/pages/jobPost/addNewJob">
+                <button className="bg-[#325F66] text-white px-6 py-3 rounded-lg hover:bg-[#26494f]">
+                    SAVE 
+                </button>
+            </Link>
+            <Link href="/pages/jobPost/addNewJob">
+                <button className="bg-gray-400 text-white px-6 py-3 rounded-lg hover:bg-[#26494f]">
+                    CANCEL
+                </button>
+            </Link>
+            </div>
           </div>
+          <div className="bg-white rounded-xl shadow-md p-5">
+            <h3 className="text-lg font-medium mb-4">Job ID: {dashboardData.jobId}</h3>
+            <form>
+                <div className="mb-4">
+                    <label htmlFor="job-title" className="block font-medium mb-2">Job Title</label>
+                    <input type="text" id="job-title" name="job-title" className="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Software Engineer" />
+                </div>
+                <div className="mb-4">
+                    <label htmlFor="required-skills" className="block font-medium mb-2">Required Skills</label>
+                    <input type="text" id="required-skills" name="required-skills" className="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Python, SQL" />
+                </div>
+                <div className="mb-4">
+                    <label htmlFor="location" className="block font-medium mb-2">Location</label>
+                    <input type="text" id="location" name="location" className="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Calgary" />
+                </div>
+                <div className="mb-4">
+                    <label htmlFor="job-type" className="block font-medium mb-2">Job Type</label>
+                    <input type="text" id="job-type" name="job-type" className="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Remote" />
+                </div>
+                <div className="mb-4">
+                    <label htmlFor="salary-range" className="block font-medium mb-2">Salary Range</label>
+                <div className="flex">
+                    <input type="text" id="salary-range-min" name="salary-range-min" className="flex-1 border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Min" />
+                    <span className="mx-2">-</span>
+                    <input type="text" id="salary-range-max" name="salary-range-max" className="flex-1 border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Max" />
+                </div>
+                </div>
+                <div className="mb-4">
+                    <label htmlFor="job-description" className="block font-medium mb-2">Job Description</label>
+                    <textarea id="job-description" name="job-description" rows="8" className="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter job description"></textarea>
+                </div>
+                <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md">Submit</button>
+            </form>
+            </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default JobPosts;
+export default AddNewJob;

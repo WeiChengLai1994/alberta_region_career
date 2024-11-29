@@ -89,28 +89,28 @@ const EmployerDashboard = () => {
       </div>
 
       {/* main menu */}
-      <div className="flex-1 p-8">
+      <div className="flex-1 p-8 ">
         <h1 className="text-5xl font-bold mb-7">Hello, Employer!</h1>
         <h1 className="text-2xl font-bold mb-9">Employer ID: {dashboardData.companyId}</h1>
-        <div className="grid grid-cols-3 gap-4 mb-8">
-          <div className="bg-white rounded-lg shadow-2xl p-4">
+        <div className="grid grid-cols-3 gap-4 mb-8 ">
+          <div className="bg-white rounded-lg shadow-2xl p-4 border border-gray-200">
             <h3 className="text-lg font-medium mb-2">Posted Jobs</h3>
             <p className="text-4xl font-bold">{dashboardData.postedJobs}</p>
             <p className="text-sm text-green-500">+15% increase vs last month</p>
           </div>
-          <div className="bg-white rounded-lg shadow-2xl p-4">
+          <div className="bg-white rounded-lg shadow-2xl p-4 border border-gray-200">
             <h3 className="text-lg font-medium mb-2">Applications</h3>
             <p className="text-4xl font-bold">{dashboardData.applications}</p>
             <p className="text-sm text-green-500">+25% increase vs last month</p>
           </div>
-          <div className="bg-white rounded-lg shadow-2xl p-4">
+          <div className="bg-white rounded-lg shadow-2xl p-4 border border-gray-200">
             <h3 className="text-lg font-medium mb-2">New Messages</h3>
             <p className="text-4xl font-bold">{dashboardData.newMessages}</p>
             <p className="text-sm text-green-500">+5% increase vs last month</p>
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow-2xl p-4 mb-8">
+        <div className="bg-white rounded-lg shadow-2xl p-4 mb-8 border border-gray-200">
           <h3 className="text-lg font-medium mb-4">Application Received</h3>
           <div className="flex flex-col justify-center items-center h-150">
             <div className="flex flex-col justify-center items-center h-50 ">
@@ -119,7 +119,7 @@ const EmployerDashboard = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-md p-5">
+        <div className="bg-white rounded-xl shadow-md p-5 border border-gray-200">
           <h3 className="text-lg font-medium mb-4">Posted Jobs</h3>
           <table className="w-full">
             <thead>

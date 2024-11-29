@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 
 
-const JobPosts = () => {
+const PostedList = () => {
   // demonstration example data
   const dashboardData = {
     companyId: 'ae229b6d46341a16',
@@ -119,8 +119,8 @@ const JobPosts = () => {
             <div className="flex items-center">
                 <img src="../../../../../image/notion.png" alt="Image" className="h-25 mr-6" />
                 <div>
-                <h1 className=" text-custom-green-dark text-5xl font-bold mb-7">Hello, {dashboardData.companyName}!</h1>
-                <h1 className="text-2xl font-bold mb-9">Employer ID: {dashboardData.companyId}</h1>
+                  <h1 className=" text-custom-green-dark text-5xl font-bold mb-7">Hello, {dashboardData.companyName}!</h1>
+                  <h1 className="text-2xl font-bold mb-9">Employer ID: {dashboardData.companyId}</h1>
                 </div>
 
             </div>
@@ -131,7 +131,7 @@ const JobPosts = () => {
                     Add New Job
                 </button>
             </Link>
-            </div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {dashboardData.postedJobsList.map((job, index) => (
@@ -179,4 +179,4 @@ const JobPosts = () => {
   );
 };
 
-export default JobPosts;
+export default PostedList;
