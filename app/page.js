@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase/firebase'; // Make sure you have the auth object exported from your firebase config file
-import Link from 'next/link'; // Import the Link component from Next.js
+
 
 export default function Home() {
   const [email, setEmail] = useState("");
