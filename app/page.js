@@ -73,12 +73,7 @@ export default function Home() {
               Sign In
             </button>
 
-            {/* Test Navigation Button */}
-            <Link href="/pages/dashboard/employer">
-              <button className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 mt-4">
-                Test Navigation
-              </button>
-            </Link>
+         
 
             {error && <div className="text-red-500 mt-2">{error}</div>}
 
