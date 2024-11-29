@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { db } from '../../../firebase/firebase'; // Import Firestore configuration
 import { collection, addDoc } from "firebase/firestore";
+import { useRouter } from 'next/navigation';// Import useRouter for page navigation
 
 export default function Register() {
   const [firstName, setFirstName] = useState('');
@@ -12,6 +13,7 @@ export default function Register() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const router = useRouter(); // Initialize useRouter
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,7 +33,10 @@ export default function Register() {
     }
 
     try {
+      // Add user data to Firestore
       await addDoc(collection(db, 'users'), { firstName, lastName, email, password });
+      
+      // Set success message and reset form fields
       setSuccess('Registration Successful!');
       setFirstName('');
       setLastName('');
@@ -39,6 +44,11 @@ export default function Register() {
       setPassword('');
       setConfirmPassword('');
       setError('');
+
+      // Redirect to login page after successful registration
+      setTimeout(() => {
+        router.push('/'); // Redirect to login page
+      }, 2000); // Delay the redirection by 2 seconds for the user to see the success message
     } catch (error) {
       console.error('Error adding document:', error);
       setError('Error occurred. Please try again!');
