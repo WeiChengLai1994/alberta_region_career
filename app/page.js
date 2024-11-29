@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase/firebase'; // Make sure you have the auth object exported from your firebase config file
+import Link from 'next/link'; // Import the Link component from Next.js
 
 export default function Home() {
   const [email, setEmail] = useState("");
@@ -14,7 +15,8 @@ export default function Home() {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       console.log("Login successful"); // Log after successful login
-      window.location.href = "/dashboard/employer"; // Redirect to the dashboard
+      // Redirect using Link-style logic
+      window.location.href = "/pages/dashboard/employer";
     } catch (err) {
       console.error("Error:", err); // Log the full error object
       setError("Login failed. Please check your email and password.");
@@ -70,6 +72,13 @@ export default function Home() {
             >
               Sign In
             </button>
+
+            {/* Test Navigation Button */}
+            <Link href="/pages/dashboard/employer">
+              <button className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 mt-4">
+                Test Navigation
+              </button>
+            </Link>
 
             {error && <div className="text-red-500 mt-2">{error}</div>}
 
