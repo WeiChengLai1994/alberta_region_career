@@ -39,11 +39,11 @@ const EmployerDashboard = () => {
         <div className="flex-shrink-0">
           <img src="/image/logo/ARC_logo_v2 1.jpg" alt="Logo" className="h-16" />
         </div>
-        <div className="justify-items-end">
+        <Link href="/" className="justify-items-end">
           <button className="flex-1 flex justify-end bg-[#325F66] text-white px-4 py-2 hover:bg-[#26494f] mt-6 rounded-3xl ">
             Log Out
           </button>
-        </div>
+        </Link>
 
       
       
@@ -66,7 +66,7 @@ const EmployerDashboard = () => {
           </svg>
           <span className="text-gray-600">Profile</span>
         </Link>
-        <Link href="/pages/jobPost" className="flex items-center space-x-2">
+        <Link href="/pages/jobPost/PostedList" className="flex items-center space-x-2">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
           </svg>

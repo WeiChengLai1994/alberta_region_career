@@ -5,7 +5,7 @@ const JobPosts = () => {
   // demonstration example data
   const dashboardData = {
     companyId: 'ae229b6d46341a16',
-    companyName: 'Alberta Chamber of Commerce',
+    companyName: 'Notion',
     postedJobs: 31,
     postedJobsList: [
       { 
@@ -113,45 +113,20 @@ const JobPosts = () => {
 
         {/* main menu */}
         <div className="flex-1 p-8">
-          <h1 className="text-5xl font-bold mb-7">Hello, {dashboardData.companyName}!</h1>
-          <h1 className="text-2xl font-bold mb-9">Employer ID: {dashboardData.companyId}</h1>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {dashboardData.postedJobsList.map((job, index) => (
-              <div key={index} className="bg-white shadow-md rounded-lg p-6 mb-6 border border-gray-200 ">
-                <div className="d-grid gap-2 d-md-block grid grid-cols-2 mb-10">
-                    <button className="btn btn-primary bg-green-700 text-white px-8 py-3 rounded-lg text-lg mr-2" type="button">EDIT</button>
-                    <button className="btn btn-primary bg-gray-400 text-white px-8 py-3 rounded-lg text-lg mr-2" type="button">DELETE</button>
+          <h3 className="text-3xl font-bold mb-7">Job Post</h3>
+          <div className="flex items-center mb-10 justify-between w-full">
+            <div className="flex items-center">
+                <img src="../../../../../image/notion.png" alt="Image" className="h-25 mr-6" />
+                <div>
+                <h1 className=" text-custom-green-dark text-5xl font-bold mb-7">Hello, {dashboardData.companyName}!</h1>
+                <h1 className="text-2xl font-bold mb-9">Employer ID: {dashboardData.companyId}</h1>
                 </div>
-                
-                    <h2 className="text-2xl font-bold mb-4">{job.title}</h2>
-                    <div className="flex items-center mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                        </svg>
-                        <span className="text-gray-500 text-sm mr-4">{job.type}</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                        </svg>
-                        <span className="text-gray-500 text-sm mr-4">{job.location}</span>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 9V7a2 2 0 00-2-2H9a2 2 0 00-2 2v2M3 13h18M5 17h14a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2z" />
-                        </svg>
-                        <span className="text-gray-500 text-sm mr-4">{job.salary}</span>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3M12 2a10 10 0 100 20 10 10 0 000-20z" />
-                        </svg>
-                        <span className="text-gray-500 text-sm mr-4">{job.postTime}</span>
-
-                    </div>
-                        <p className="text-gray-600 mb-4">{job.description}</p>
-
 
             </div>
-            ))}
+
+      
+            
+
             
           </div>
         </div>
