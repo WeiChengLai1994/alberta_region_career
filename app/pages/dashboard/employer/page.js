@@ -34,15 +34,25 @@ const EmployerDashboard = () => {
   return (
     <div>
       {/* Header */}
-      <header className="bg-white p-4 flex items-center">
+      <header className="bg-white p-4 items-center grid grid-cols-2 ">
+
         <div className="flex-shrink-0">
           <img src="/image/logo/ARC_logo_v2 1.jpg" alt="Logo" className="h-16" />
         </div>
-        <div className="flex-1 flex justify-end bg-[#325F66] text-white px-4 py-2 hover:bg-[#26494f] mt-6 rounded-3xl">
-
-
-
+        <div className="justify-items-end">
+          <button className="flex-1 flex justify-end bg-[#325F66] text-white px-4 py-2 hover:bg-[#26494f] mt-6 rounded-3xl ">
+            Log Out
+          </button>
         </div>
+        {/* className="bg-[#325F66] text-white px-4 py-2 hover:bg-[#26494f] mt-6 rounded-3xl" */}
+      {/* <div className="grid grid-cols-3 gap-4 mb-8">
+          <div className="bg-white rounded-lg shadow-2xl p-4">
+            <h3 className="text-lg font-medium mb-2">Posted Jobs</h3>
+            <p className="text-4xl font-bold">{dashboardData.postedJobs}</p>
+            <p className="text-sm text-green-500">+15% increase vs last month</p>
+          </div> */}
+      
+      
       </header>
     <div className="flex h-screen">
       
@@ -107,10 +117,10 @@ const EmployerDashboard = () => {
         </div>
 
         <div className="bg-white rounded-lg shadow-2xl p-4 mb-8">
-          {/* <h3 className="text-lg font-medium mb-4">Application Received</h3> */}
+          <h3 className="text-lg font-medium mb-4">Application Received</h3>
           <div className="flex flex-col justify-center items-center h-150">
             <div className="flex flex-col justify-center items-center h-50 ">
-              <img src="../../../../../image/employerDashboard_dataExample.png" alt="Example Image" className="max-w-full h-auto " />
+              <img src="../../../../../image/employerDashboard_dataExample1.png" alt="Example Image" className="max-w-full h-auto " />
             </div>
           </div>
         </div>
@@ -136,10 +146,10 @@ const EmployerDashboard = () => {
                   key={index}
                   className={`${
                     index % 2 === 0 ? 'bg-gray-100' : ''
-                  } border-b border-gray-200`}
+                  } border-b border-gray-200 `}
                 >
                   <td className="py-3 px-4">
-                    <div className="flex items-center">
+                    <div className="flex items-center pd">
                       <div className="w-12 h-12 rounded-md bg-gray-200 mr-4">
                         <img src="../../../../../image/notion.png" alt="Image" className="max-w-full h-auto " />
                       </div>
