@@ -47,6 +47,14 @@ const JobPosts = () => {
         salary: '$38-$40k',
         postTime: '3 day ago',
         description: 'Mollit in laborum tempor Lorem incididunt ture. Aute eu ex ad sunt. Pariatur sint culpa do incididunt eiusmod eiusmod culpa. laborum tempor Lorem incididunt.'
+      },
+      {
+        title: 'Copywriter (Growth)',
+        type: 'Full-time',
+        location: 'Edmonton',
+        salary: '$38-$40k',
+        postTime: '3 day ago',
+        description: 'Mollit in laborum tempor Lorem incididunt ture. Aute eu ex ad sunt. Pariatur sint culpa do incididunt eiusmod eiusmod culpa. laborum tempor Lorem incididunt.'
       }
     ],
   };
@@ -112,8 +120,8 @@ const JobPosts = () => {
             {dashboardData.postedJobsList.map((job, index) => (
               <div key={index} className="bg-white shadow-md rounded-lg p-6 mb-6 border border-gray-200 ">
                 <div className="d-grid gap-2 d-md-block grid grid-cols-2 mb-10">
-                    <button class="btn btn-primary bg-green-700 text-white px-8 py-3 rounded-lg text-lg mr-2" type="button">EDIT</button>
-                    <button class="btn btn-primary bg-gray-400 text-white px-8 py-3 rounded-lg text-lg mr-2" type="button">DELETE</button>
+                    <button className="btn btn-primary bg-green-700 text-white px-8 py-3 rounded-lg text-lg mr-2" type="button">EDIT</button>
+                    <button className="btn btn-primary bg-gray-400 text-white px-8 py-3 rounded-lg text-lg mr-2" type="button">DELETE</button>
                 </div>
                 
                     <h2 className="text-2xl font-bold mb-4">{job.title}</h2>
@@ -138,14 +146,13 @@ const JobPosts = () => {
                         </svg>
                         <span className="text-gray-500 text-sm mr-4">{job.postTime}</span>
 
-
-
                     </div>
                         <p className="text-gray-600 mb-4">{job.description}</p>
 
 
             </div>
             ))}
+            
           </div>
         </div>
       </div>
