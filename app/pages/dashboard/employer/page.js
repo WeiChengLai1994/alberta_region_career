@@ -73,8 +73,8 @@ const EmployerDashboard = () => {
 
       {/* main menu */}
       <div className="flex-1 p-8">
-        <h1 className="text-5xl font-bold mb-4">Hello, Employer!</h1>
-        <h1 className="text-2xl font-bold mb-4">Employer ID: {dashboardData.companyId}</h1>
+        <h1 className="text-5xl font-bold mb-7">Hello, Employer!</h1>
+        <h1 className="text-2xl font-bold mb-9">Employer ID: {dashboardData.companyId}</h1>
         <div className="grid grid-cols-3 gap-4 mb-8">
           <div className="bg-white rounded-lg shadow-2xl p-4">
             <h3 className="text-lg font-medium mb-2">Posted Jobs</h3>
@@ -94,10 +94,10 @@ const EmployerDashboard = () => {
         </div>
 
         <div className="bg-white rounded-lg shadow-2xl p-4 mb-8">
-          <h3 className="text-lg font-medium mb-4">Application Received</h3>
-          <div className="flex flex-col justify-center items-center h-64">
-            <div className="flex flex-col justify-center items-center h-64 ">
-              <img src="../../../../..//image/employerDashboard_dataExample.png" alt="Example Image" className="max-w-full h-auto " />
+          {/* <h3 className="text-lg font-medium mb-4">Application Received</h3> */}
+          <div className="flex flex-col justify-center items-center h-150">
+            <div className="flex flex-col justify-center items-center h-50 ">
+              <img src="../../../../../image/employerDashboard_dataExample.png" alt="Example Image" className="max-w-full h-auto " />
             </div>
           </div>
         </div>
@@ -127,7 +127,9 @@ const EmployerDashboard = () => {
                 >
                   <td className="py-3 px-4">
                     <div className="flex items-center">
-                      <div className="w-12 h-12 rounded-md bg-gray-200 mr-4"></div>
+                      <div className="w-12 h-12 rounded-md bg-gray-200 mr-4">
+                        <img src="../../../../..//image/notion.png" alt="Image" className="max-w-full h-auto " />
+                      </div>
                       <div>
                         <span className="font-medium">{job.title}</span>
                         <div className="flex items-center space-x-4 text-sm text-gray-500">
