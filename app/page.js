@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../firebase/firebase'; // Make sure you have the auth object exported from your firebase config file
+import { auth } from '/firebase/firebase'; // Make sure you have the auth object exported from your firebase config file
 
 
 export default function Home() {
@@ -60,7 +60,7 @@ export default function Home() {
                 onChange={(e) => setPassword(e.target.value)}
               />
               <a
-                href="/forgot-password"
+                href="/pages/forgot-password"
                 className="text-sm text-[#325F66] hover:underline absolute right-0 top-full mt-1"
               >
                 Forgot password?

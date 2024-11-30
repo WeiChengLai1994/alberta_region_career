@@ -1,9 +1,10 @@
 'use client';  // Add this line to mark the component as a client component
 
 import { useState } from 'react';
-import { db } from '../../../firebase/firebase'; // Import Firestore configuration
+import { db, auth } from '../../../firebase/firebase'; // Import Firestore and Firebase Authentication
+import { createUserWithEmailAndPassword } from "firebase/auth";  // Import Firebase Authentication methods
 import { collection, addDoc } from "firebase/firestore";
-import { useRouter } from 'next/navigation';// Import useRouter for page navigation
+import { useRouter } from 'next/navigation'; // Import useRouter for page navigation
 
 export default function Register() {
   const [firstName, setFirstName] = useState('');
@@ -33,9 +34,18 @@ export default function Register() {
     }
 
     try {
-      // Add user data to Firestore
-      await addDoc(collection(db, 'users'), { firstName, lastName, email, password });
-      
+      // Register user with Firebase Authentication
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      // Add user data to Firestore (including firstName, lastName, email, etc.)
+      await addDoc(collection(db, 'users'), {
+        firstName,
+        lastName,
+        email,
+        uid: user.uid, // Store the UID to reference the user in Firebase Authentication
+      });
+
       // Set success message and reset form fields
       setSuccess('Registration Successful!');
       setFirstName('');
@@ -50,7 +60,7 @@ export default function Register() {
         router.push('/'); // Redirect to login page
       }, 2000); // Delay the redirection by 2 seconds for the user to see the success message
     } catch (error) {
-      console.error('Error adding document:', error);
+      console.error('Error registering user:', error);
       setError('Error occurred. Please try again!');
       setSuccess('');
     }
