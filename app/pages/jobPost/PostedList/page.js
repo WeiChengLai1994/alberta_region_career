@@ -1,5 +1,7 @@
+
 import React from 'react';
 import Link from 'next/link';
+
 
 
 const PostedList = () => {
@@ -78,7 +80,7 @@ const PostedList = () => {
         {/* left hand side menu */}
         <div className="bg-gray-200 p-6 flex flex-col space-y-10">
           <h1 className="text-2xl font-bold">Employer Dashboard</h1>
-          <Link href="/" className="flex items-center space-x-2">
+          <Link href="/pages/dashboard/employer" className="flex items-center space-x-2">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
             </svg>
@@ -114,6 +116,23 @@ const PostedList = () => {
 
         {/* main menu */}
         <div className="flex-1 p-8">
+
+        <div className="flex items-center mb-10">
+          {/* Back to PostedList Icon */}
+          <Link href="/pages/dashboard/employer" className="flex items-center text-gray-600 hover:text-gray-800 mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" 
+                className="h-6 w-6 text-gray-500 mr-2 hover:text-gray-700" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor">
+              <path strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth={2} 
+                    d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            <span className="text-gray-600">Back to Home</span>
+          </Link>
+        </div>
           <h3 className="text-3xl font-bold mb-7">Job Post</h3>
           <div className="flex items-center mb-10 justify-between w-full">
             <div className="flex items-center">

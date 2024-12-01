@@ -1,5 +1,8 @@
+"use client";
 import React from 'react';
 import Link from 'next/link';
+
+
 
 const AddNewJob = () => {
   // demonstration example data
@@ -60,6 +63,37 @@ const AddNewJob = () => {
     ],
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  
+    // get the data from form
+    const formData = new FormData(event.target);
+    const jobData = Object.fromEntries(formData.entries());
+  
+    showSuccessModal(jobData);
+  };
+  const [showModal, setShowModal] = React.useState(false);
+  const [modalData, setModalData] = React.useState(null);
+  
+  const showSuccessModal = (jobData) => {
+
+    const formattedData = {
+      jobTitle: jobData["job-title"],
+      requiredSkills: jobData["required-skills"],
+      location: jobData["location"],
+      jobType: jobData["job-type"],
+      salaryRange: `${jobData["salary-range-min"]} - ${jobData["salary-range-max"]}`,
+      jobDescription: jobData["job-description"],
+    };
+    setModalData(formattedData);
+    setShowModal(true);
+  };
+  
+  
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <div>
       {/* Header */}
@@ -78,7 +112,7 @@ const AddNewJob = () => {
         {/* left hand side menu */}
         <div className="bg-gray-200 p-6 flex flex-col space-y-10 ">
           <h1 className="text-2xl font-bold">Employer Dashboard</h1>
-          <Link href="/" className="flex items-center space-x-2">
+          <Link href="/pages/dashboard/employer" className="flex items-center space-x-2">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
             </svg>
@@ -114,6 +148,21 @@ const AddNewJob = () => {
 
         {/* main menu */}
         <div className="flex-1 p-8">
+          {/* Back to PostedList Icon */}
+          <Link href="/pages/jobPost/PostedList" className="flex items-center text-gray-600 hover:text-gray-800 mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" 
+                className="h-6 w-6 text-gray-500 mr-2 hover:text-gray-700" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor">
+              <path strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth={2} 
+                    d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            <span className="text-gray-600">Back to Job List</span>
+          </Link>
+
           <h3 className="text-3xl font-bold mb-7">Job Post</h3>
           <div className="flex items-center mb-10 justify-between w-full">
             <div className="flex items-center">
@@ -124,8 +173,11 @@ const AddNewJob = () => {
                 </div>
 
             </div>
-            <div className="flex items-center space-x-4">
-            {/* Add Button */}
+
+
+
+            {/* <div className="flex items-center space-x-4">
+
             <Link href="/pages/jobPost/addNewJob">
                 <button className="bg-[#325F66] text-white px-6 py-3 rounded-lg hover:bg-[#26494f]">
                     SAVE 
@@ -136,11 +188,13 @@ const AddNewJob = () => {
                     CANCEL
                 </button>
             </Link>
-            </div>
+            </div> */}
+
+            
           </div>
           <div className="bg-white rounded-xl shadow-md p-5">
             <h3 className="text-lg font-medium mb-4">Job ID: {dashboardData.jobId}</h3>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div className="mb-4">
                     <label htmlFor="job-title" className="block font-medium mb-2">Job Title</label>
                     <input type="text" id="job-title" name="job-title" className="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Software Engineer" />
@@ -174,7 +228,59 @@ const AddNewJob = () => {
             </div>
         </div>
       </div>
+
+      {showModal && (
+  <div className="fixed z-10 inset-0 overflow-y-auto">
+    <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+      <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+      <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+      <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+        <div>
+          <div className="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
+            <svg className="h-6 w-6 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+            <h3 className="text-lg leading-6 font-medium text-gray-900">Job Posting Added Successfully</h3>
+            <div className="mt-2">
+              <p className="text-sm text-gray-500">
+                <strong>Job Title:</strong> {modalData?.jobTitle}
+              </p>
+              <p className="text-sm text-gray-500">
+                <strong>Required Skills:</strong> {modalData?.requiredSkills}
+              </p>
+              <p className="text-sm text-gray-500">
+                <strong>Location:</strong> {modalData?.location}
+              </p>
+              <p className="text-sm text-gray-500">
+                <strong>Job Type:</strong> {modalData?.jobType}
+              </p>
+              <p className="text-sm text-gray-500">
+                <strong>Salary Range:</strong> {modalData?.salaryRange}
+              </p>
+              <p className="text-sm text-gray-500">
+                <strong>Description:</strong> {modalData?.jobDescription}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
+          <button
+            type="button"
+            className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
+            onClick={closeModal}
+          >
+            Close
+          </button>
+        </div>
+      </div>
     </div>
+  </div>
+)}
+
+    </div>
+
   );
 };
 
