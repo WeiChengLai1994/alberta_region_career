@@ -1,95 +1,178 @@
-'use client';  // Add this at the top of your file to mark it as a client-side component
+"use client";
 
-import { useState } from 'react';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '/firebase/firebase'; // Make sure you have the auth object exported from your firebase config file
-
+import { useState } from "react";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "/firebase/firebase";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleLogin = async () => {
-    console.log("Sign-in button clicked"); // Log to see if the function is triggered
+  const handleLogin = async (e) => {
+    e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      console.log("Login successful"); // Log after successful login
-      // Redirect using Link-style logic
       window.location.href = "/pages/dashboard/employer";
     } catch (err) {
-      console.error("Error:", err); // Log the full error object
-      setError("Login failed. Please check your email and password.");
+      console.error("Error:", err);
+      setError("Failed to login. Please check your credentials.");
     }
   };
 
   return (
-    <div>
+    <div className="min-h-screen flex flex-col bg-white">
       {/* Header */}
-      <header className="bg-white p-4 flex items-center">
-        <div className="flex-shrink-0">
-          <img src="/image/logo/ARC_logo_v2 1.jpg" alt="Logo" className="h-16" />
+      <header className="bg-white p-4">
+        <div className="mb-4">
+          <Image
+            src="/image/logo/ARC_logo_v2 1.jpg"
+            alt="ARC Logo"
+            width={100}
+            height={50}
+            className="mb-4"
+          />
         </div>
       </header>
 
-      {/* Main content */}
-      <div className="flex min-h-screen">
-        <div className="w-1/2 bg-[#325F66] flex items-center justify-center p-8">
-          <h1 className="text-white text-3xl font-bold">Welcome to the Alberta Region Career</h1>
+      {/* Main Content */}
+      <div className="flex flex-1">
+        {/* Left Section */}
+        <div className="w-1/2 bg-[#325F66] p-12 flex flex-col">
+          <h1 className="text-4xl text-white font-bold mb-6">
+            Welcome to ARC!
+          </h1>
+          <p className="text-white text-lg">
+            Our innovative hybrid model combines traditional job fair elements
+            with modern technology to revolutionize hiring. Through strategic
+            partnerships and data-driven insights, we're shaping a sustainable
+            future for employment in Alberta.
+          </p>
+
+          {/* Graph Illustration */}
+          <div className="mt-8">
+            <div className="">
+              <div className="mb-4">
+                <Image
+                  src="/login-image.png"
+                  alt="ARC Logo"
+                  width={500}
+                  height={250}
+                  className="mb-4"
+                />
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className="w-1/2 bg-white flex flex-col items-center justify-center p-8">
-          <h2 className="text-custom-green-dark text-2xl font-semibold mb-6">Welcome Back</h2>
+        {/* Right Section */}
+        <div className="w-1/2 p-12 flex flex-col justify-center items-center">
+          <div className="w-full max-w-md">
+            <h2 className="text-3xl font-bold text-[#325F66] mb-8">
+              Welcome back!
+            </h2>
 
-          {/* Sign In Form */}
-          <div className="w-full max-w-sm flex flex-col gap-4 mb-6">
-            <input
-              type="email"
-              placeholder="Email"
-              className="border border-gray-300 rounded px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#325F66]"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            
-            <div className="relative w-full">
-              <input
-                type="password"
-                placeholder="Password"
-                className="border border-gray-300 rounded px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#325F66]"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <a
-                href="/pages/forgot-password"
-                className="text-sm text-[#325F66] hover:underline absolute right-0 top-full mt-1"
+            <form onSubmit={handleLogin} className="space-y-6">
+              <div>
+                <label className="block text-gray-600 mb-2">User Name</label>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full px-4 py-3 rounded-md bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#325F66]"
+                  placeholder="Enter User Name"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block text-gray-600 mb-2">Password</label>
+                <input
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full px-4 py-3 rounded-md bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#325F66]"
+                  placeholder="Enter Password"
+                  required
+                />
+                <div className="text-right mt-2">
+                  <Link
+                    href="/forgot-password"
+                    className="text-gray-500 hover:text-[#325F66] text-sm"
+                  >
+                    Forgot Password?
+                  </Link>
+                </div>
+              </div>
+
+              {error && (
+                <div className="text-red-500 text-sm text-center">{error}</div>
+              )}
+
+              <button
+                type="submit"
+                className="w-full bg-[#325F66] text-white py-3 rounded-md hover:bg-[#264a51] transition-colors"
               >
-                Forgot password?
-              </a>
-            </div>
-            <button
-              onClick={handleLogin}
-              className="bg-[#325F66] text-white px-4 py-2 hover:bg-[#26494f] mt-6 rounded-3xl"
-            >
-              Sign In
-            </button>
+                Sign In
+              </button>
 
-         
+              <div className="relative flex items-center justify-center mt-6">
+                <hr className="w-full border-gray-300" />
+                <span className="absolute bg-white px-4 text-sm text-gray-500">
+                  or do it via other accounts
+                </span>
+              </div>
 
-            {error && <div className="text-red-500 mt-2">{error}</div>}
+              <div className="flex justify-center space-x-4 mt-6">
+                <button
+                  type="button"
+                  className="p-2 rounded-full border hover:bg-gray-50"
+                >
+                  <Image
+                    src="/icons/google.png"
+                    alt="Google"
+                    width={24}
+                    height={24}
+                  />
+                </button>
+                <button
+                  type="button"
+                  className="p-2 rounded-full border hover:bg-gray-50"
+                >
+                  <Image
+                    src="/icons/apple-logo.png"
+                    alt="Apple"
+                    width={24}
+                    height={24}
+                  />
+                </button>
+                <button
+                  type="button"
+                  className="p-2 rounded-full border hover:bg-gray-50"
+                >
+                  <Image
+                    src="/icons/facebook.png"
+                    alt="Facebook"
+                    width={24}
+                    height={24}
+                  />
+                </button>
+              </div>
 
-            {/* Social Login Buttons */}
-            <div className="flex justify-center gap-4 mt-6">
-              {/* Add social login buttons */}
-            </div>
-            {/* Sign Up Link */}
-            <div className="text-center mt-6">
-              <span className="text-gray-500 text-sm">
-                Don't have an account?{" "}
-                <a href="/pages/register" className="text-[#325F66] font-semibold hover:underline">
-                  Sign Up
-                </a>
-              </span>
-            </div>
+              <div className="text-center mt-6">
+                <span className="text-gray-500">
+                  Don't have an account?{" "}
+                  <Link
+                    href="/pages/register"
+                    className="text-[#325F66] font-semibold hover:underline"
+                  >
+                    Sign Up
+                  </Link>
+                </span>
+              </div>
+            </form>
           </div>
         </div>
       </div>
