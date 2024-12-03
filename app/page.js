@@ -99,7 +99,7 @@ export default function Home() {
                 />
                 <div className="text-right mt-2">
                   <Link
-                    href="/forgot-password"
+                    href="/pages/forgot-password"
                     className="text-gray-500 hover:text-[#325F66] text-sm"
                   >
                     Forgot Password?
