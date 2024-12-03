@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import AppLayout from "./pages/components/AppLayout";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -20,10 +21,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <head>
+        <meta
+          name="format-detection"
+          content="telephone=no, date=no, email=no, address=no"
+        />
+      </head>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <AppLayout>{children}</AppLayout>
       </body>
     </html>
   );

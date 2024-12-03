@@ -5,25 +5,31 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "/firebase/firebase";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      window.location.href = "/pages/dashboard/employer";
+      router.push('/pages/dashboard/employer');
     } catch (err) {
       console.error("Error:", err);
       setError("Failed to login. Please check your credentials.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="flex flex-col bg-white">
       {/* Header */}
       <header className="bg-white p-4">
         <div className="mb-4">
@@ -32,6 +38,7 @@ export default function Home() {
             alt="ARC Logo"
             width={100}
             height={50}
+            loading="eager"
             className="mb-4"
           />
         </div>
@@ -60,6 +67,7 @@ export default function Home() {
                   alt="ARC Logo"
                   width={500}
                   height={250}
+                  priority
                   className="mb-4"
                 />
               </div>
