@@ -95,29 +95,30 @@ const AddNewJob = () => {
   };
 
   return (
-    <div>
-      {/* Header */}
-      <header className="bg-white p-4 items-center grid grid-cols-2 ">
-        <div className="flex-shrink-0">
-          <img src="/image/logo/ARC_logo_v2 1.jpg" alt="Logo" className="h-16" />
-        </div>
-        <div className="justify-items-end">
-          <button className="flex-1 flex justify-end bg-[#325F66] text-white px-4 py-2 hover:bg-[#26494f] mt-6 rounded-3xl ">
-            Log Out
-          </button>
-        </div>
-      </header>
+<div className="h-screen flex flex-col">
+  {/* Header */}
+  <header className="bg-white p-4 items-center grid grid-cols-2">
+    <div className="flex-shrink-0">
+      <img src="/image/logo/ARC_logo_v2 1.jpg" alt="Logo" className="h-16" />
+    </div>
+    <Link href="/" className="justify-items-end">
+      <button className="flex-1 flex justify-end bg-[#325F66] text-white px-4 py-2 hover:bg-[#26494f] mt-6 rounded-3xl">
+        Log Out
+      </button>
+    </Link>
+  </header>
 
-      <div className="flex h-screen">
-        {/* left hand side menu */}
-        <div className="bg-gray-200 p-6 flex flex-col space-y-10 ">
-          <h1 className="text-2xl font-bold">Employer Dashboard</h1>
-          <Link href="/pages/dashboard/employer" className="flex items-center space-x-2">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-            </svg>
-            <span className="text-gray-600">Home</span>
-          </Link>
+  {/* Main Layout */}
+  <div className="flex flex-1">
+    {/* Left-hand side menu */}
+    <div className="bg-gray-200 p-6 flex flex-col space-y-10 w-64">
+      <h1 className="text-2xl font-bold">Employer Dashboard</h1>
+      <Link href="/pages/dashboard/employer" className="flex items-center space-x-2">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        </svg>
+        <span className="text-gray-600">Home</span>
+      </Link>
 
           <Link href="/pages/dashboard/employer" className="flex items-center space-x-2">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -192,7 +193,7 @@ const AddNewJob = () => {
 
             
           </div>
-          <div className="bg-white rounded-xl shadow-md p-5">
+          <div className="bg-white rounded-xl shadow-md p-10">
             <h3 className="text-lg font-medium mb-4">Job ID: {dashboardData.jobId}</h3>
             <form onSubmit={handleSubmit}>
                 <div className="mb-4">
@@ -244,22 +245,22 @@ const AddNewJob = () => {
           <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
             <h3 className="text-lg leading-6 font-medium text-gray-900">Job Posting Added Successfully</h3>
             <div className="mt-2">
-              <p className="text-sm text-gray-500">
+              <p className="text-lg text-gray-500">
                 <strong>Job Title:</strong> {modalData?.jobTitle}
               </p>
-              <p className="text-sm text-gray-500">
+              <p className="text-lg text-gray-500">
                 <strong>Required Skills:</strong> {modalData?.requiredSkills}
               </p>
-              <p className="text-sm text-gray-500">
+              <p className="text-lg text-gray-500">
                 <strong>Location:</strong> {modalData?.location}
               </p>
-              <p className="text-sm text-gray-500">
+              <p className="text-lg text-gray-500">
                 <strong>Job Type:</strong> {modalData?.jobType}
               </p>
-              <p className="text-sm text-gray-500">
+              <p className="text-lg text-gray-500">
                 <strong>Salary Range:</strong> {modalData?.salaryRange}
               </p>
-              <p className="text-sm text-gray-500">
+              <p className="text-lg text-gray-500">
                 <strong>Description:</strong> {modalData?.jobDescription}
               </p>
             </div>
