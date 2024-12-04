@@ -223,7 +223,7 @@ const PostedList = () => {
 
             {/* Add Button */}
             <Link href="/pages/jobPost/addNewJob">
-                <button className="bg-[#325F66] text-white px-6 py-3 rounded-lg hover:bg-[#26494f]">
+                <button className="bg-[#325F66] text-white px-6 py-3 rounded-lg hover:bg-[#26494f] font-bold">
                     Add New Job
                 </button>
             </Link>
