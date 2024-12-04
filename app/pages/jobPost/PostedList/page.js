@@ -1,5 +1,6 @@
+"use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 
 
@@ -58,34 +59,110 @@ const PostedList = () => {
         salary: '$38-$40k',
         postTime: '3 day ago',
         description: 'Mollit in laborum tempor Lorem incididunt ture. Aute eu ex ad sunt. Pariatur sint culpa do incididunt eiusmod eiusmod culpa. laborum tempor Lorem incididunt.'
+      },
+      {
+        title: 'Test Engineer',
+        type: 'Full-time',
+        location: 'Edmonton',
+        salary: '$38-$40k',
+        postTime: '3 day ago',
+        description: 'Mollit in laborum tempor Lorem incididunt ture. Aute eu ex ad sunt. Pariatur sint culpa do incididunt eiusmod eiusmod culpa. laborum tempor Lorem incididunt.'
+      },
+      { 
+        title: 'Junior Test Engineer',
+        type: 'Full-time',
+        location: 'Banff',
+        salary: '$30-$32k',
+        postTime: '1 day ago',
+        description: 'Mollit in laborum tempor Lorem incididunt ture. Aute eu ex ad sunt. Pariatur sint culpa do incididunt eiusmod eiusmod culpa. laborum tempor Lorem incididunt.'
+      },
+      {
+        title: 'Technical Manager',
+        type: 'Full-time',
+        location: 'Airdrie', 
+        salary: '$50-$52k',
+        postTime: '1 day ago',
+        description: 'Mollit in laborum tempor Lorem incididunt ture. Aute eu ex ad sunt. Pariatur sint culpa do incididunt eiusmod eiusmod culpa. laborum tempor Lorem incididunt.'
+      },
+      {
+        title: 'Test Engineer',
+        type: 'Full-time',
+        location: 'Okotoks',
+        salary: '$40-$42k',
+        postTime: '2 day ago',
+        description: 'Mollit in laborum tempor Lorem incididunt ture. Aute eu ex ad sunt. Pariatur sint culpa do incididunt eiusmod eiusmod culpa. laborum tempor Lorem incididunt.'
+      },
+      {
+        title: 'Test Engineer',
+        type: 'Full-time',
+        location: 'Edmonton',
+        salary: '$38-$40k',
+        postTime: '3 day ago',
+        description: 'Mollit in laborum tempor Lorem incididunt ture. Aute eu ex ad sunt. Pariatur sint culpa do incididunt eiusmod eiusmod culpa. laborum tempor Lorem incididunt.'
+      },
+      {
+        title: 'Test Engineer',
+        type: 'Full-time',
+        location: 'Edmonton',
+        salary: '$38-$40k',
+        postTime: '3 day ago',
+        description: 'Mollit in laborum tempor Lorem incididunt ture. Aute eu ex ad sunt. Pariatur sint culpa do incididunt eiusmod eiusmod culpa. laborum tempor Lorem incididunt.'
+      },
+      {
+        title: 'Test Engineer',
+        type: 'Full-time',
+        location: 'Edmonton',
+        salary: '$38-$40k',
+        postTime: '3 day ago',
+        description: 'Mollit in laborum tempor Lorem incididunt ture. Aute eu ex ad sunt. Pariatur sint culpa do incididunt eiusmod eiusmod culpa. laborum tempor Lorem incididunt.'
       }
     ],
   };
+  const [currentPage, setCurrentPage] = useState(1); // Current page number
+  const jobsPerPage = 6; // Every page shows 6 jobs
+
+  // Calculate the total number of pages
+  const totalPages = Math.ceil(dashboardData.postedJobsList.length / jobsPerPage);
+
+  // Calculate the work to be displayed based on the current page number
+  const indexOfLastJob = currentPage * jobsPerPage;
+  const indexOfFirstJob = indexOfLastJob - jobsPerPage;
+  const currentJobs = dashboardData.postedJobsList.slice(indexOfFirstJob, indexOfLastJob);
+
+  // Page Change
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+
+
+
 
   return (
-    <div>
-      {/* Header */}
-      <header className="bg-white p-4 items-center grid grid-cols-2 ">
-        <div className="flex-shrink-0">
-          <img src="/image/logo/ARC_logo_v2 1.jpg" alt="Logo" className="h-16" />
-        </div>
-        <div className="justify-items-end">
-          <button className="flex-1 flex justify-end bg-[#325F66] text-white px-4 py-2 hover:bg-[#26494f] mt-6 rounded-3xl ">
-            Log Out
-          </button>
-        </div>
-      </header>
+<div className="h-screen flex flex-col">
+  {/* Header */}
+  <header className="bg-white p-4 items-center grid grid-cols-2">
+    <div className="flex-shrink-0">
+      <img src="/image/logo/ARC_logo_v2 1.jpg" alt="Logo" className="h-16" />
+    </div>
+    <Link href="/" className="justify-items-end">
+      <button className="flex-1 flex justify-end bg-[#325F66] text-white px-4 py-2 hover:bg-[#26494f] mt-6 rounded-3xl">
+        Log Out
+      </button>
+    </Link>
+  </header>
 
-      <div className="flex h-screen">
-        {/* left hand side menu */}
-        <div className="bg-gray-200 p-6 flex flex-col space-y-10">
-          <h1 className="text-2xl font-bold">Employer Dashboard</h1>
-          <Link href="/pages/dashboard/employer" className="flex items-center space-x-2">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-            </svg>
-            <span className="text-gray-600">Home</span>
-          </Link>
+  {/* Main Layout */}
+  <div className="flex flex-1">
+    {/* Left-hand side menu */}
+    <div className="bg-gray-200 p-6 flex flex-col space-y-10 w-64">
+      <h1 className="text-2xl font-bold">Employer Dashboard</h1>
+      <Link href="/pages/dashboard/employer" className="flex items-center space-x-2">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        </svg>
+        <span className="text-gray-600">Home</span>
+      </Link>
 
           <Link href="/pages/dashboard/employer" className="flex items-center space-x-2">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -146,18 +223,21 @@ const PostedList = () => {
 
             {/* Add Button */}
             <Link href="/pages/jobPost/addNewJob">
-                <button className="bg-[#325F66] text-white px-6 py-3 rounded-lg hover:bg-[#26494f]">
+                <button className="bg-[#325F66] text-white px-6 py-3 rounded-lg hover:bg-[#26494f] font-bold">
                     Add New Job
                 </button>
             </Link>
           </div>
 
+
+
+        {/* Job Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {dashboardData.postedJobsList.map((job, index) => (
+            {currentJobs.map((job, index) => (
               <div key={index} className="bg-white shadow-md rounded-lg p-6 mb-6 border border-gray-200 ">
                 <div className="d-grid gap-2 d-md-block grid grid-cols-2 mb-10">
-                    <button className="btn btn-primary bg-[#325F66] text-white px-8 py-3 rounded-lg text-lg mr-2" type="button">EDIT</button>
-                    <button className="btn btn-primary bg-gray-400 text-white px-8 py-3 rounded-lg text-lg mr-2" type="button">DELETE</button>
+                    <button className="btn btn-primary bg-[#325F66] text-white px-8 py-3 rounded-lg text-lg mr-2 font-bold" type="button">EDIT</button>
+                    <button className="btn btn-primary bg-gray-400 text-white px-8 py-3 rounded-lg text-lg mr-2 font-bold" type="button">DELETE</button>
                 </div>
                 
                     <h2 className="text-2xl font-bold mb-4">{job.title}</h2>
@@ -165,22 +245,22 @@ const PostedList = () => {
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
-                        <span className="text-gray-500 text-sm mr-4">{job.type}</span>
+                        <span className="text-gray-500 text-sm mr-4 font-bold">{job.type}</span>
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>
-                        <span className="text-gray-500 text-sm mr-4">{job.location}</span>
+                        <span className="text-gray-500 text-sm mr-4 font-bold">{job.location}</span>
 
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 9V7a2 2 0 00-2-2H9a2 2 0 00-2 2v2M3 13h18M5 17h14a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2z" />
                         </svg>
-                        <span className="text-gray-500 text-sm mr-4">{job.salary}</span>
+                        <span className="text-gray-500 text-sm mr-4 font-bold">{job.salary}</span>
 
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3M12 2a10 10 0 100 20 10 10 0 000-20z" />
                         </svg>
-                        <span className="text-gray-500 text-sm mr-4">{job.postTime}</span>
+                        <span className="text-gray-500 text-sm mr-4 font-bold">{job.postTime}</span>
 
                     </div>
                         <p className="text-gray-600 mb-4">{job.description}</p>
@@ -188,10 +268,25 @@ const PostedList = () => {
 
             </div>
             ))}
-            
-
-            
           </div>
+
+        {/* Pagination */}
+        <div className="flex justify-center items-center mt-8 space-x-2">
+          {Array.from({ length: totalPages }, (_, index) => (
+            <button
+              key={index}
+              onClick={() => handlePageChange(index + 1)}
+              className={`px-4 py-2 border rounded-lg ${
+                currentPage === index + 1 ? 'bg-blue-500 text-white' : 'bg-gray-200'
+              }`}
+            >
+              {index + 1}
+            </button>
+          ))}
+        </div>
+
+
+          
         </div>
       </div>
     </div>
