@@ -5,25 +5,31 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "/firebase/firebase";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      window.location.href = "/pages/dashboard/employer";
+      router.push('/pages/dashboard/employer');
     } catch (err) {
       console.error("Error:", err);
       setError("Failed to login. Please check your credentials.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="flex flex-col bg-white">
       {/* Header */}
       <header className="bg-white p-4">
         <div className="mb-4">
@@ -32,6 +38,7 @@ export default function Home() {
             alt="ARC Logo"
             width={100}
             height={50}
+            loading="eager"
             className="mb-4"
           />
         </div>
@@ -60,6 +67,7 @@ export default function Home() {
                   alt="ARC Logo"
                   width={500}
                   height={250}
+                  priority
                   className="mb-4"
                 />
               </div>
@@ -67,6 +75,7 @@ export default function Home() {
           </div>
         </div>
 
+<<<<<<< Updated upstream
         {/* Right Section */}
         <div className="w-1/2 p-12 flex flex-col justify-center items-center">
           <div className="w-full max-w-md">
@@ -99,7 +108,7 @@ export default function Home() {
                 />
                 <div className="text-right mt-2">
                   <Link
-                    href="/forgot-password"
+                    href="/pages/forgot-password"
                     className="text-gray-500 hover:text-[#325F66] text-sm"
                   >
                     Forgot Password?
@@ -173,6 +182,21 @@ export default function Home() {
                 </span>
               </div>
             </form>
+=======
+        {/* Right half with white background and buttons */}
+        <div className="w-1/2 bg-white flex flex-col items-center justify-center p-8">
+          <h2 className="text-2xl font-semibold mb-6">Please choose an option to continue:</h2>
+          <div className="flex flex-col gap-4">
+            <Link href="/EmployerLogin" className="bg-[#325F66] text-white px-4 py-2 rounded hover:bg-[#26494f]">
+              Employer Login
+            </Link>
+            <Link href="/JobSeekerLogin" className="bg-[#325F66] text-white px-4 py-2 rounded hover:bg-[#26494f]">
+              Job Seeker Login
+            </Link>
+            <Link href="/register" className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+              Register for an Account
+            </Link>
+>>>>>>> Stashed changes
           </div>
         </div>
       </div>
