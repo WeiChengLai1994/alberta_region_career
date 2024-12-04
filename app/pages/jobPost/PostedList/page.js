@@ -1,5 +1,6 @@
+"use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 
 
@@ -58,9 +59,84 @@ const PostedList = () => {
         salary: '$38-$40k',
         postTime: '3 day ago',
         description: 'Mollit in laborum tempor Lorem incididunt ture. Aute eu ex ad sunt. Pariatur sint culpa do incididunt eiusmod eiusmod culpa. laborum tempor Lorem incididunt.'
+      },
+      {
+        title: 'Test Engineer',
+        type: 'Full-time',
+        location: 'Edmonton',
+        salary: '$38-$40k',
+        postTime: '3 day ago',
+        description: 'Mollit in laborum tempor Lorem incididunt ture. Aute eu ex ad sunt. Pariatur sint culpa do incididunt eiusmod eiusmod culpa. laborum tempor Lorem incididunt.'
+      },
+      { 
+        title: 'Junior Test Engineer',
+        type: 'Full-time',
+        location: 'Banff',
+        salary: '$30-$32k',
+        postTime: '1 day ago',
+        description: 'Mollit in laborum tempor Lorem incididunt ture. Aute eu ex ad sunt. Pariatur sint culpa do incididunt eiusmod eiusmod culpa. laborum tempor Lorem incididunt.'
+      },
+      {
+        title: 'Technical Manager',
+        type: 'Full-time',
+        location: 'Airdrie', 
+        salary: '$50-$52k',
+        postTime: '1 day ago',
+        description: 'Mollit in laborum tempor Lorem incididunt ture. Aute eu ex ad sunt. Pariatur sint culpa do incididunt eiusmod eiusmod culpa. laborum tempor Lorem incididunt.'
+      },
+      {
+        title: 'Test Engineer',
+        type: 'Full-time',
+        location: 'Okotoks',
+        salary: '$40-$42k',
+        postTime: '2 day ago',
+        description: 'Mollit in laborum tempor Lorem incididunt ture. Aute eu ex ad sunt. Pariatur sint culpa do incididunt eiusmod eiusmod culpa. laborum tempor Lorem incididunt.'
+      },
+      {
+        title: 'Test Engineer',
+        type: 'Full-time',
+        location: 'Edmonton',
+        salary: '$38-$40k',
+        postTime: '3 day ago',
+        description: 'Mollit in laborum tempor Lorem incididunt ture. Aute eu ex ad sunt. Pariatur sint culpa do incididunt eiusmod eiusmod culpa. laborum tempor Lorem incididunt.'
+      },
+      {
+        title: 'Test Engineer',
+        type: 'Full-time',
+        location: 'Edmonton',
+        salary: '$38-$40k',
+        postTime: '3 day ago',
+        description: 'Mollit in laborum tempor Lorem incididunt ture. Aute eu ex ad sunt. Pariatur sint culpa do incididunt eiusmod eiusmod culpa. laborum tempor Lorem incididunt.'
+      },
+      {
+        title: 'Test Engineer',
+        type: 'Full-time',
+        location: 'Edmonton',
+        salary: '$38-$40k',
+        postTime: '3 day ago',
+        description: 'Mollit in laborum tempor Lorem incididunt ture. Aute eu ex ad sunt. Pariatur sint culpa do incididunt eiusmod eiusmod culpa. laborum tempor Lorem incididunt.'
       }
     ],
   };
+  const [currentPage, setCurrentPage] = useState(1); // 當前頁碼
+  const jobsPerPage = 6; // 每頁顯示的工作數量
+
+  // 計算總頁數
+  const totalPages = Math.ceil(dashboardData.postedJobsList.length / jobsPerPage);
+
+  // 根據當前頁碼計算需要顯示的工作
+  const indexOfLastJob = currentPage * jobsPerPage;
+  const indexOfFirstJob = indexOfLastJob - jobsPerPage;
+  const currentJobs = dashboardData.postedJobsList.slice(indexOfFirstJob, indexOfLastJob);
+
+  // 處理頁碼切換
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+
+
+
 
   return (
 <div className="h-screen flex flex-col">
@@ -153,8 +229,11 @@ const PostedList = () => {
             </Link>
           </div>
 
+
+
+        {/* Job Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {dashboardData.postedJobsList.map((job, index) => (
+            {currentJobs.map((job, index) => (
               <div key={index} className="bg-white shadow-md rounded-lg p-6 mb-6 border border-gray-200 ">
                 <div className="d-grid gap-2 d-md-block grid grid-cols-2 mb-10">
                     <button className="btn btn-primary bg-[#325F66] text-white px-8 py-3 rounded-lg text-lg mr-2" type="button">EDIT</button>
@@ -189,10 +268,25 @@ const PostedList = () => {
 
             </div>
             ))}
-            
-
-            
           </div>
+
+        {/* Pagination */}
+        <div className="flex justify-center items-center mt-8 space-x-2">
+          {Array.from({ length: totalPages }, (_, index) => (
+            <button
+              key={index}
+              onClick={() => handlePageChange(index + 1)}
+              className={`px-4 py-2 border rounded-lg ${
+                currentPage === index + 1 ? 'bg-blue-500 text-white' : 'bg-gray-200'
+              }`}
+            >
+              {index + 1}
+            </button>
+          ))}
+        </div>
+
+
+          
         </div>
       </div>
     </div>
