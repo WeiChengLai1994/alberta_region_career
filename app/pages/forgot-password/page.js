@@ -32,12 +32,13 @@ export default function ForgotPassword() {
       <header className="bg-white p-4 flex items-center">
         <div className="flex-shrink-0">
           {/* Add width and height for image optimization */}
-          <Image 
-            src="/image/logo/ARC_logo_v2 1.jpg" 
-            alt="Logo" 
-            width={100}  // Add width in pixels
-            height={50}  // Add height in pixels
-            className="h-16"  // You can still use Tailwind for styling the height if needed
+          <Image
+            src="/image/logo/ARClogo.jpg"
+            alt="ARC Logo"
+            width={100}
+            height={50}
+            loading="eager"
+            className="mb-4"
           />
         </div>
       </header>

@@ -73,7 +73,14 @@ export default function Register() {
       {/* Header */}
       <header className="bg-white p-4 flex items-center">
         <div className="flex-shrink-0">
-          <Image src="/image/logo/ARC_logo_v2 1.jpg" alt="Logo" className="h-16" />
+        <Image
+            src="/image/logo/ARC_logo_v2 1.jpg"
+            alt="ARC Logo"
+            width={100}
+            height={50}
+            loading="eager"
+            className="mb-4"
+          />
         </div>
       </header>
 
