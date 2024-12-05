@@ -31,13 +31,13 @@ export default function Login() {
             {/* Image logo section */}
             <div className="mb-4">
             <Image
-    src="/image/logo/ARC_logo_v2_1.jpg"  // Ensure the path is correct and no spaces in the filename
-    alt="ARC Logo"
-    width={200}  // Width property is already set
-    height={100} // Height property is already set
-    loading="eager"
-    className="mb-4"
-/>
+                src="/image/logo/ARClogo.jpg"  // Ensure the path is correct and no spaces in the filename
+                alt="ARC Logo"
+                width={200}  // Width property is already set
+                height={100} // Height property is already set
+                loading="eager"
+                className="mb-4"
+            />
             </div>
 
             {/* Login Form */}
