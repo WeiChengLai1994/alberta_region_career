@@ -35,7 +35,7 @@ export default function Home() {
       <header className="bg-white p-4">
         <div className="mb-4">
           <Image
-            src="/image/logo/ARC_logo_v2 1.jpg"
+            src="/image/logo/ARClogo.jpg"
             alt="ARC Logo"
             width={100}
             height={50}

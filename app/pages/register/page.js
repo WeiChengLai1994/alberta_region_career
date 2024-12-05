@@ -74,7 +74,7 @@ export default function Register() {
       <header className="bg-white p-4 flex items-center">
         <div className="flex-shrink-0">
         <Image
-            src="/image/logo/ARC_logo_v2 1.jpg"
+            src="/image/logo/ARClogo.jpg"
             alt="ARC Logo"
             width={100}
             height={50}
