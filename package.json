@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "autoprefixer": "^10.4.20",
     "encoding": "^0.1.13",
     "firebase": "^11.0.2",
     "next": "15.0.3",
