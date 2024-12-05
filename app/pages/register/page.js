@@ -5,6 +5,8 @@ import { db, auth } from '../../../firebase/firebase'; // Import Firestore and F
 import { createUserWithEmailAndPassword } from "firebase/auth";  // Import Firebase Authentication methods
 import { collection, addDoc } from "firebase/firestore";
 import { useRouter } from 'next/navigation'; // Import useRouter for page navigation
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Register() {
   const [firstName, setFirstName] = useState('');
@@ -71,7 +73,7 @@ export default function Register() {
       {/* Header */}
       <header className="bg-white p-4 flex items-center">
         <div className="flex-shrink-0">
-          <img src="/image/logo/ARC_logo_v2 1.jpg" alt="Logo" className="h-16" />
+          <Image src="/image/logo/ARC_logo_v2 1.jpg" alt="Logo" className="h-16" />
         </div>
       </header>
 
@@ -145,9 +147,9 @@ export default function Register() {
           <div className="text-center mt-6">
             <span className="text-gray-500 text-sm">
               Already have an account?{" "}
-              <a href="/" className="text-[#325F66] font-semibold hover:underline">
+              <Link href="/" className="text-[#325F66] font-semibold hover:underline">
                 Sign In
-              </a>
+              </Link>
             </span>
           </div>
         </div>

@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+
 
 
 
@@ -143,7 +145,7 @@ const PostedList = () => {
   {/* Header */}
   <header className="bg-white p-4 items-center grid grid-cols-2">
     <div className="flex-shrink-0">
-      <img src="/image/logo/ARC_logo_v2 1.jpg" alt="Logo" className="h-16" />
+      <Image src="/image/logo/ARC_logo_v2 1.jpg" alt="Logo" className="h-16" />
     </div>
     <Link href="/" className="justify-items-end">
       <button className="flex-1 flex justify-end bg-[#325F66] text-white px-4 py-2 hover:bg-[#26494f] mt-6 rounded-3xl">
@@ -213,7 +215,7 @@ const PostedList = () => {
           <h3 className="text-3xl font-bold mb-7">Job Post</h3>
           <div className="flex items-center mb-10 justify-between w-full">
             <div className="flex items-center">
-                <img src="../../../../../image/notion.png" alt="Image" className="h-25 mr-6" />
+                <Image src="../../../../../image/notion.png" alt="Image" className="h-25 mr-6" />
                 <div>
                   <h1 className=" text-custom-green-dark text-5xl font-bold mb-7">Hello, {dashboardData.companyName}!</h1>
                   <h1 className="text-2xl font-bold mb-9">Employer ID: {dashboardData.companyId}</h1>

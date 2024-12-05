@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const EmployerDashboard = () => {
   // demonstration example data
@@ -36,7 +37,7 @@ const EmployerDashboard = () => {
   {/* Header */}
   <header className="bg-white p-4 items-center grid grid-cols-2">
     <div className="flex-shrink-0">
-      <img src="/image/logo/ARC_logo_v2 1.jpg" alt="Logo" className="h-16" />
+      <Image src="/image/logo/ARC_logo_v2 1.jpg" alt="Logo" className="h-16" />
     </div>
     <Link href="/" className="justify-items-end">
       <button className="flex-1 flex justify-end bg-[#325F66] text-white px-4 py-2 hover:bg-[#26494f] mt-6 rounded-3xl">
@@ -111,7 +112,7 @@ const EmployerDashboard = () => {
           <h3 className="text-lg font-medium mb-4">Application Received</h3>
           <div className="flex flex-col justify-center items-center h-150">
             <div className="flex flex-col justify-center items-center h-50 ">
-              <img src="../../../../../image/employerDashboard_dataExample1.png" alt="Example Image" className="max-w-full h-auto " />
+              <Image src="../../../../../image/employerDashboard_dataExample1.png" alt="Example Image" className="max-w-full h-auto " />
             </div>
           </div>
         </div>
@@ -142,7 +143,7 @@ const EmployerDashboard = () => {
                   <td className="py-3 px-4">
                     <div className="flex items-center pd">
                       <div className="w-12 h-12 rounded-md bg-gray-200 mr-4">
-                        <img src="../../../../../image/notion.png" alt="Image" className="max-w-full h-auto " />
+                        <Image src="../../../../../image/notion.png" alt="Image" className="max-w-full h-auto " />
                       </div>
                       <div>
                         <span className="font-medium">{job.title}</span>

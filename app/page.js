@@ -1,9 +1,9 @@
-"use client";
+"use client"; // Ensure this line is at the top to indicate client-side code
 
 import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "/firebase/firebase";
-import Image from "next/image";
+import Image from "next/image"; // Correctly importing Image from Next.js
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -17,9 +17,10 @@ export default function Home() {
   const handleLogin = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setError(""); // Reset any previous error
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      router.push('/pages/dashboard/employer');
+      router.push("/pages/dashboard/employer");
     } catch (err) {
       console.error("Error:", err);
       setError("Failed to login. Please check your credentials.");
@@ -54,23 +55,21 @@ export default function Home() {
           <p className="text-white text-lg">
             Our innovative hybrid model combines traditional job fair elements
             with modern technology to revolutionize hiring. Through strategic
-            partnerships and data-driven insights, we're shaping a sustainable
+            partnerships and data-driven insights, we&apos;re shaping a sustainable
             future for employment in Alberta.
           </p>
 
           {/* Graph Illustration */}
           <div className="mt-8">
-            <div className="">
-              <div className="mb-4">
-                <Image
-                  src="/login-image.png"
-                  alt="ARC Logo"
-                  width={500}
-                  height={250}
-                  priority
-                  className="mb-4"
-                />
-              </div>
+            <div className="mb-4">
+              <Image
+                src="/login-image.png"
+                alt="Graphical representation of ARC&apos;s work"
+                width={500}
+                height={250}
+                priority
+                className="mb-4"
+              />
             </div>
           </div>
         </div>
@@ -123,7 +122,7 @@ export default function Home() {
                 type="submit"
                 className="w-full bg-[#325F66] text-white py-3 rounded-md hover:bg-[#264a51] transition-colors"
               >
-                Sign In
+                {isLoading ? "Loading..." : "Sign In"}
               </button>
 
               <div className="relative flex items-center justify-center mt-6">
@@ -171,7 +170,7 @@ export default function Home() {
 
               <div className="text-center mt-6">
                 <span className="text-gray-500">
-                  Don't have an account?{" "}
+                  Don&apos;t have an account?{" "}
                   <Link
                     href="/pages/register"
                     className="text-[#325F66] font-semibold hover:underline"
