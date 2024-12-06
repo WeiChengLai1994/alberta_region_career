@@ -26,6 +26,11 @@ export default function ForgotPassword() {
     }
   };
 
+  // Handle return to home page
+  const goToHomePage = () => {
+    router.push('/'); // Replace '/' with your actual home page route if different
+  };
+
   return (
     <div>
       {/* Header */}
@@ -69,6 +74,14 @@ export default function ForgotPassword() {
           {/* Display success or error messages */}
           {message && <div className="text-green-500 mt-2">{message}</div>}
           {error && <div className="text-red-500 mt-2">{error}</div>}
+
+          {/* Button to return to home page */}
+          <button
+            onClick={goToHomePage}
+            className="bg-gray-500 text-white px-4 py-2 hover:bg-gray-600 mt-4 rounded-3xl"
+          >
+            Return to Home Page
+          </button>
         </div>
       </div>
     </div>
